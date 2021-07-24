@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>下拉菜单</title>
+		<script src="jquery-3.6.0.js"></script>
+	</head>
+	<body>
+		<form action="" method="post">
+		<input id="one" type="button" value="使单选下拉框的2号被选中"/><br>
+		<input id="two" type="button" value="使多选下拉框选中的2号和5号被选中"/><br>
+		<input id="three" type="button" value="使复选框的复选2和复选4被选中"/><br>
+		<input id="four" type="button" value="使单选框的单选2被选中"/><br>
+		<input id="five" type="button" value="打印已经被选中的值"/><br>
+		<select>
+			<option>1号</option>
+			<option>2号</option>
+			<option>3号</option>
+			<option>4号</option>
+			<option>5号</option>
+			<option>6号</option>
+		</select><br>
+		
+		<input type="checkbox" name="fuxuan"/>复选1
+		<input type="checkbox" name="fuxuan"/>复选2
+		<input type="checkbox" name="fuxuan"/>复选3
+		<input type="checkbox" name="fuxuan"/>复选4<br>
+		
+		<input type="radio" name="danxuan"/>单选1
+		<input type="radio" name="danxuan"/>单选2
+		<input type="radio" name="danxuan"/>单选3
+		</form>
+		<script type="text/javascript">
+			
+			$(function(){
+				//使单选下拉框的2号被选中
+				$("#one").click(function(){
+					$("option:eq(1)").css("background","blue");
+					$("option:eq(1)").css("color","red"); 
+				});
+				//使多选下拉框选中的2号和5号被选中
+				$("#two").click(function(){
+					$("option:eq(1)").css("background","blue");
+					$("option:eq(1)").css("color","red"); 
+					$("option:eq(4)").css("background","blue");
+					$("option:eq(4)").css("color","red"); 
+				});
+				//使复选框的复选2和复选4被选中
+			$("#three").click(function(){
+				$("input:eq(6)").prop("checked","checked");
+				$("input:eq(8)").prop("checked","checked");
+			});
+			//使单选框的单选2被选中
+			$("#four").click(function(){
+				$("input:eq(10)").prop("checked","checked");
+			});
+			//打印已经被选中的值
+			$("#five").click(function(){
+				var a=[];
+				$(":checked").each(function(){
+					a.push($(this).val());
+				});
+				alert(a.toString());
+			});
+			});
+		</script>
+	</body>
+</html>
